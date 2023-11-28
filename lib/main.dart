@@ -5,13 +5,13 @@ import 'package:mopet/router.dart';
 import 'package:mopet/utils/shared_perferences_manager.dart';
 
 void main() async {
+  // Flutter 엔진 및 위젯 초화
   WidgetsFlutterBinding.ensureInitialized();
 
   // 세로 화면 고정
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  SharedPreferencesManager.initialize;
-  print(SharedPreferencesManager.prefs);
+  await SharedPreferencesManager.initialize();
 
   runApp(
     const ProviderScope(
@@ -27,6 +27,9 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       routerConfig: ref.watch(routerProvider),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
     );
   }
 }
