@@ -1,0 +1,195 @@
+{
+  "project_info": {
+    "project_number": "703661084209",
+    "firebase_url": "https://mopet-1658898595272-default-rtdb.firebaseio.com",
+    "project_id": "mopet-1658898595272",
+    "storage_bucket": "mopet-1658898595272.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703661084209:android:927327b090d5559b2acf10",
+        "android_client_info": {
+          "package_name": "com.bac.mopet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703661084209-19igrdsn7pr3q81bkvje4dri10ibokv7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bac.mopet",
+            "certificate_hash": "e6d9ff489043b7ac411f4c48434e7c3b6688d343"
+          }
+        },
+        {
+          "client_id": "703661084209-bcks23nm7o942851id69f178iqf3srhp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bac.mopet",
+            "certificate_hash": "95f71a55b0ba37400acbe1bba6c518d9f81fcbe6"
+          }
+        },
+        {
+          "client_id": "703661084209-gdacnpn22q9idpdtebhsme0h6s6oeodo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bac.mopet",
+            "certificate_hash": "632a148183bf8d0c42e093bf47f826c9e50e1418"
+          }
+        },
+        {
+          "client_id": "703661084209-0952q9nhmotp1ilnqr2giopsjieh7s3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_8t67BVLcAXI-Vb_0BxjtrcdcQ9tGE24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703661084209-0952q9nhmotp1ilnqr2giopsjieh7s3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "703661084209-b597tdjsjj5plh1inaa3cq8uu26mv0o0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bac.mopet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703661084209:android:62c704676819ed762acf10",
+        "android_client_info": {
+          "package_name": "com.betterco.mopet.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703661084209-2ptq7ic0279t9at7khevf0ciev5cu5m5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "7ab752cc78b5860dd0c2ce06985390a2893f4f38"
+          }
+        },
+        {
+          "client_id": "703661084209-78au3lga531djdpueqrulnlccoahdu0m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "2f54a6e42b856e92a14628d2a2299664d64d67b3"
+          }
+        },
+        {
+          "client_id": "703661084209-7bp76ahf95s5ccrjbg5f0bbq8fij37o6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "57324dc0112d36dd9c2051be6c6cdc7257a3e7cd"
+          }
+        },
+        {
+          "client_id": "703661084209-cb198srpd4s3kram81nq5pkiah7q62p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "62d3507befce6a854997ee7f7d72c51201320017"
+          }
+        },
+        {
+          "client_id": "703661084209-hf267cnjmfdnlct34bu00ave8k3jb1mu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "081209f8cb4b68c8808ba3c343301263f80cc99a"
+          }
+        },
+        {
+          "client_id": "703661084209-j2gv7ohjn8s4homarjqftg41dvbfi8bl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "e66ad1161a2515d760e789e78cc2647a477962e6"
+          }
+        },
+        {
+          "client_id": "703661084209-jdas3dtjvqh0bvpctv8l4ld95vmc1enc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "d77447e959b24d3d8808648e1202a60f723b72ee"
+          }
+        },
+        {
+          "client_id": "703661084209-jlod80i38m2r3qpsbtf4le0k8jdsu8u7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "344ce68a256c1db5acc07e0270c599c1c5a96d5f"
+          }
+        },
+        {
+          "client_id": "703661084209-kf8upp7g6r1llcltr02d662ud88rt5dt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "3cad17d0ffac98d29f510f8c9a3c1c7273128aa5"
+          }
+        },
+        {
+          "client_id": "703661084209-mj2tf92vu2ttpbcgj0e8o6bo4h3tfu0v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "f64480137140016cf329a0ac870b49f9acc7edaa"
+          }
+        },
+        {
+          "client_id": "703661084209-p4tdo8kkcpqc3nrm821qeqihtg9rnlhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.betterco.mopet.android",
+            "certificate_hash": "ff31bc5be897c77cff3681d014965bd40ed3e349"
+          }
+        },
+        {
+          "client_id": "703661084209-0952q9nhmotp1ilnqr2giopsjieh7s3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_8t67BVLcAXI-Vb_0BxjtrcdcQ9tGE24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703661084209-0952q9nhmotp1ilnqr2giopsjieh7s3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "703661084209-b597tdjsjj5plh1inaa3cq8uu26mv0o0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bac.mopet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
