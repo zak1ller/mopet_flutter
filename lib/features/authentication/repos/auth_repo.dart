@@ -11,12 +11,14 @@ import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:mopet/constants/base_url.dart';
 import 'package:mopet/constants/keys.dart';
 import 'package:mopet/features/authentication/models/auth_check_response_model.dart';
+import 'package:mopet/features/authentication/models/delete_account_response_model.dart';
 import 'package:mopet/features/authentication/models/jwt_check_response_model.dart';
 import 'package:mopet/features/authentication/models/login_reponse_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:mopet/features/authentication/models/number_auth_response_model.dart';
 import 'package:mopet/features/authentication/models/register_response_model.dart';
 import 'package:mopet/features/authentication/models/user_update_response_model.dart';
+import 'package:mopet/utils/shared_perferences_manager.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class AuthRepository {
@@ -44,7 +46,6 @@ class AuthRepository {
           AppleIDAuthorizationScopes.email,
           AppleIDAuthorizationScopes.fullName,
         ],
-        
         webAuthenticationOptions: WebAuthenticationOptions(
           clientId: "com.bac.mopet.apple.login",
           redirectUri: Uri.parse(
@@ -60,7 +61,6 @@ class AuthRepository {
 
       return oauthCredential.idToken;
     } catch (error) {
-      print(error);
       return null;
     }
   }
@@ -118,9 +118,24 @@ class AuthRepository {
     }
   }
 
-  Future<void> signOut() async {}
+  Future<DeleteAccountResponseModel?> deleteAccount() async {
+    Uri uri = Uri.parse("${BaseUrl.baseUrl}/app/users/profile");
+    final headers = await Keys.headers();
+    Map<String, dynamic> body = {
+      "userId": SharedPreferencesManager.prefs.getString(Keys.userId),
+    };
 
-  Future<void> deleteAccount() async {}
+    final response = await http.delete(
+      uri,
+      headers: headers,
+      body: body,
+    );
+    if (response.statusCode == 200) {
+      return DeleteAccountResponseModel.fromJson(jsonDecode(response.body));
+    } else {
+      return null;
+    }
+  }
 
   Future<UserUpdateResponseModel?> updateUser() async {
     Uri uri = Uri.parse("${BaseUrl.baseUrl}/app/users/update");
@@ -156,7 +171,7 @@ class AuthRepository {
       "phone": phoneNumber,
     };
 
-    Uri uri = Uri.parse("${BaseUrl.baseUrl}/app/auth");
+    Uri uri = Uri.parse("${BaseUrl.baseUrl}/app/auth/phone");
     final response = await http.post(
       uri,
       body: body,
@@ -231,7 +246,7 @@ class AuthRepository {
     if (response.statusCode == 200) {
       // Listen for response
       var responseData = await response.stream.toBytes();
-      var responseString = String.fromCharCodes(responseData);
+      var responseString = utf8.decode(responseData);
       return RegisterResponseModel.fromJson(jsonDecode(responseString));
     } else {
       return null;

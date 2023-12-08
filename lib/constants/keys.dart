@@ -9,6 +9,7 @@ class Keys {
   static const nickname = "nickname";
   static const mode = "mode";
   static const userId = "user_id";
+  static const provider = "provider";
 
   static Future<Map<String, String>> headers() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();

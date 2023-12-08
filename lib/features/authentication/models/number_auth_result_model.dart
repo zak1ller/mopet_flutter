@@ -1,13 +1,13 @@
 class NumberAuthResultModel {
-  final String authCount;
+  final int remainCount;
 
   NumberAuthResultModel({
-    required this.authCount,
+    required this.remainCount,
   });
 
   factory NumberAuthResultModel.fromJson(Map<String, dynamic> json) {
     return NumberAuthResultModel(
-      authCount: json['authCount'],
+      remainCount: json['remainCount'],
     );
   }
 }

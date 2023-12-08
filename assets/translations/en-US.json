@@ -3,6 +3,9 @@
     "profile_image": "프로필 사진",
     "camera": "카메라",
     "gallery": "앨범",
+    "logout_button": "로그아웃",
+    "cancel_button": "취소",
+    "delete_account_button": "삭제",
     
     "login_screen_title": "모두의 펫 로그인",
     "social_login_apple": "Apple로 계속하기",
@@ -54,5 +57,21 @@
     "register_pet_birthday_placeholder": "YYYYMMDD",
     "register_pet_type": "반려동물 종류",
     "register_pet_type_placeholder": "반려동물 종 입력",
-    "register_complete_button": "회원가입 완료"
+    "register_complete_button": "회원가입 완료",
+
+    "settings_title": "설정",
+    "settings_user_login_info": "{username}님 {provider}로 로그인했어요",
+    "settings_notification_and_permission_title": "알림 및 권한",
+    "settings_notification_and_permission_item_feed_notification": "피드 알림",
+    "settings_notification_and_permission_item_marketing_notification": "마케팅 정보 알림",
+    "settings_app_info_title": "앱 정보",
+    "settings_terms_of_use_title": "이용약관",
+    "settings_terms_of_use_item_privacy": "개인정보 처리방침",
+    "settings_terms_of_use_item_service": "서비스 이용약관",
+    "settings_terms_of_use_item_location": "위치정보 이용약관",
+    "settings_terms_of_use_item_marketing": "마케팅 정보 수신 동의",
+    "settings_logout_button": "로그아웃",
+    "settings_delete_account_button": "회원탈퇴",
+    "settings_logout_dialog_title": "로그아웃하시겠습니까?",
+    "settings_delete_account_dialog_title": "계정을 삭제하시겠습니까?"
 }

@@ -2,10 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mopet/common/views/mopet_snack_bar.dart';
+import 'package:mopet/constants/keys.dart';
 import 'package:mopet/features/authentication/models/register_model.dart';
 import 'package:mopet/features/authentication/repos/auth_repo.dart';
+import 'package:mopet/features/authentication/view_models/login_view_model.dart';
+import 'package:mopet/features/profile/view_models/settings_view_model.dart';
+import 'package:mopet/features/profile/views/settings_screen.dart';
+import 'package:mopet/utils/shared_perferences_manager.dart';
 
 class RegisterViewModel extends Notifier<RegisterModel> {
   @override
@@ -137,14 +143,12 @@ class RegisterViewModel extends Notifier<RegisterModel> {
     final auth = ref.read(authRepo);
     final response = await auth.registerUserAccount(map);
     state = state.copyWith(isLoading: false);
-    print("registerUserAccount: $response");
     if (response == null) return;
     if (response.isSuccess) {
+      SharedPreferencesManager.prefs.setString(Keys.nickname, state.username);
       if (!context.mounted) return;
-      // context.goNamed(lastScreen);
-      print('회원가입 성공!');
-    } else { 
-      print(response.code);
+      ref.read(loginProvider.notifier).login(accessToken, provider, context);
+    } else {
       if (!context.mounted) return;
       MopetSnackBar.show(context, response.message);
     }

@@ -38,9 +38,6 @@ class _NumberAuthTextFieldState extends ConsumerState<NumberAuthTextField> {
   @override
   void dispose() {
     super.dispose();
-    if (widget.focusNode != null) {
-      widget.focusNode!.dispose();
-    }
   }
 
   @override

@@ -36,8 +36,8 @@ class _NumberAuthScreenState extends ConsumerState<NumberAuthScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     _authNumberFocusNode.dispose();
+    super.dispose();
   }
 
   @override

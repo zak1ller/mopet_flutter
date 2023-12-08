@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:mopet/constants/mopet_color.dart';
+import 'package:mopet/constants/mopet_text_style.dart';
 import 'package:mopet/firebase_options.dart';
 import 'package:mopet/router.dart';
 import 'package:mopet/utils/shared_perferences_manager.dart';
@@ -29,7 +30,7 @@ void main() async {
 
   // 카카오 SDK 초기화
   KakaoSdk.init(nativeAppKey: "f453a082b0e58b382b15d3826bcfe2e1");
-  
+
   // 세로 화면 고정
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
@@ -66,6 +67,11 @@ class App extends ConsumerWidget {
       locale: context.locale,
       theme: ThemeData(
         scaffoldBackgroundColor: MopetColor.light01,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          titleTextStyle:
+              MopetTextStyle.p50020.copyWith(color: MopetColor.light07),
+        ),
       ),
     );
   }

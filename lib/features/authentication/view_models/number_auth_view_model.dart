@@ -11,10 +11,10 @@ class NumberAuthViewModel extends Notifier<NumberAuthModel> {
   @override
   NumberAuthModel build() {
     return NumberAuthModel(
-        phoneNumber: "",
-        isValidNumber: false,
-        isCertifiedAuthNumber: false,
-        authCount: "5");
+      phoneNumber: "",
+      isValidNumber: false,
+      isCertifiedAuthNumber: false,
+    );
   }
 
   void checkValidPhoneNumber(String phoneNumber) {
@@ -45,20 +45,17 @@ class NumberAuthViewModel extends Notifier<NumberAuthModel> {
       String phoneNumber, BuildContext context, FocusNode focusNode) async {
     final auth = ref.read(authRepo);
     final response = await auth.authenticateAuthNumber(phoneNumber);
-    print("sendSMS: $response");
     if (response == null) return;
     if (response.isSuccess) {
       final result = response.result;
       if (result == null) return;
-      final authCount = int.parse(state.authCount) - 1;
-      state = state.copyWith(authCount: "$authCount");
       if (!context.mounted) return;
       // 문자 인증 남은 횟수 알림
       MopetSnackBar.show(
         context,
         "number_auth_remain_count_message".tr(
           namedArgs: {
-            "count": state.authCount,
+            "count": "${result.remainCount}",
           },
         ),
       );
@@ -83,22 +80,23 @@ class NumberAuthViewModel extends Notifier<NumberAuthModel> {
   }
 
   Future<void> submitAuthNumber(
-      String accessToken ,String phoneNumber, String authNumber, bool isMarketing, String provider, BuildContext context) async {
+      String accessToken,
+      String phoneNumber,
+      String authNumber,
+      bool isMarketing,
+      String provider,
+      BuildContext context) async {
     final auth = ref.read(authRepo);
     final response = await auth.checkAuthNumber(phoneNumber, authNumber);
-    print("submitAuthNumber: $response");
     if (response == null) return;
     if (response.isSuccess) {
       if (!context.mounted) return;
-      context.pushNamed(
-        RegisterScreen.routeName,
-        extra: {
-          "isMarketing": isMarketing,
-          "phoneNumber": phoneNumber,
-          "provider": provider,
-          "accessToken": accessToken,
-        }
-      );
+      context.pushNamed(RegisterScreen.routeName, extra: {
+        "isMarketing": isMarketing,
+        "phoneNumber": phoneNumber,
+        "provider": provider,
+        "accessToken": accessToken,
+      });
     } else {
       if (!context.mounted) return;
       if (response.code == 2011) {
