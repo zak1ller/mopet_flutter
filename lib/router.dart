@@ -7,6 +7,7 @@ import 'package:mopet/features/authentication/views/register_screen.dart';
 import 'package:mopet/features/authentication/views/service_access_permission_screen.dart';
 import 'package:mopet/features/authentication/views/terms_of_use_screen.dart';
 import 'package:mopet/features/notifications/notifications_provider.dart';
+import 'package:mopet/features/profile/views/profile_edit_screen.dart';
 import 'package:mopet/features/profile/views/settings_screen.dart';
 import 'package:mopet/utils/shared_perferences_manager.dart';
 
@@ -17,7 +18,8 @@ final routerProvider = Provider((ref) {
   bool isLogin = jwt.isNotEmpty;
   return GoRouter(
     // initialLocation: LoginScreen.routeUrl,
-    initialLocation: isLogin ? SettingsScreen.routeUrl : LoginScreen.routeUrl,
+    // initialLocation: isLogin ? SettingsScreen.routeUrl : LoginScreen.routeUrl,
+    initialLocation: isLogin ? ProfileEditScreen.routeUrl : LoginScreen.routeUrl,
     routes: [
       ShellRoute(
         builder: (context, state, child) {
@@ -95,6 +97,13 @@ final routerProvider = Provider((ref) {
             path: SettingsScreen.routeUrl,
             builder: (context, state) {
               return const SettingsScreen();
+            },
+          ),
+          GoRoute(
+            name: ProfileEditScreen.routeName,
+            path: ProfileEditScreen.routeUrl,
+            builder: (context, state) {
+              return const ProfileEditScreen();
             },
           ),
         ],

@@ -6,9 +6,10 @@ class LoadingView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      backgroundColor: Colors.black.withOpacity(0.5),
-      body: const Center(
+    return const Scaffold(
+      backgroundColor: Colors.transparent,
+      // backgroundColor: Colors.black.withOpacity(0.5),
+      body: Center(
         child: CircularProgressIndicator(),
       ),
     );

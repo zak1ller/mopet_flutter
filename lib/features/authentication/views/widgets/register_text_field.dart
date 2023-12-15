@@ -8,10 +8,12 @@ import 'package:mopet/constants/mopet_text_style.dart';
 class RegisterTextField extends ConsumerStatefulWidget {
   final String title;
   final String placeholder;
+  final String? value;
   final bool showWarningTextField;
   final Function(String) onValueChanged;
   final FocusNode? focusNode;
   final TextInputType textInputType;
+  final bool isDisabled;
 
   const RegisterTextField({
     super.key,
@@ -20,7 +22,9 @@ class RegisterTextField extends ConsumerStatefulWidget {
     required this.showWarningTextField,
     required this.onValueChanged,
     this.focusNode,
-    this.textInputType = TextInputType.text
+    this.textInputType = TextInputType.text,
+    this.value,
+    this.isDisabled = false,
   });
 
   @override
@@ -40,6 +44,22 @@ class _RegisterTextFieldState extends ConsumerState<RegisterTextField> {
   }
 
   @override
+  void dispose() {
+    _editingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant RegisterTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.value != oldWidget.value) {
+      Future(() {
+        _editingController.text = widget.value ?? "";
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,13 +75,16 @@ class _RegisterTextFieldState extends ConsumerState<RegisterTextField> {
               child: SizedBox(
                 height: 48,
                 child: TextField(
+                  enabled: !widget.isDisabled,
                   controller: _editingController,
                   minLines: 1,
                   maxLines: 1,
                   focusNode: widget.focusNode,
                   keyboardType: widget.textInputType,
-                  style:
-                      MopetTextStyle.p70016.copyWith(color: MopetColor.light07),
+                  style: MopetTextStyle.p70016.copyWith(
+                      color: widget.isDisabled
+                          ? MopetColor.light04
+                          : MopetColor.light07),
                   decoration: InputDecoration(
                     hintText: widget.placeholder.tr(),
                     hintStyle: MopetTextStyle.p70016
@@ -77,7 +100,9 @@ class _RegisterTextFieldState extends ConsumerState<RegisterTextField> {
                         width: 1,
                         color: widget.showWarningTextField
                             ? MopetColor.warning
-                            : MopetColor.light07,
+                            : widget.isDisabled
+                                ? MopetColor.light04
+                                : MopetColor.light07,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
@@ -86,7 +111,9 @@ class _RegisterTextFieldState extends ConsumerState<RegisterTextField> {
                         width: 1,
                         color: widget.showWarningTextField
                             ? MopetColor.warning
-                            : MopetColor.light07,
+                            : widget.isDisabled
+                                ? MopetColor.light04
+                                : MopetColor.light07,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -95,7 +122,9 @@ class _RegisterTextFieldState extends ConsumerState<RegisterTextField> {
                         width: 1,
                         color: widget.showWarningTextField
                             ? MopetColor.warning
-                            : MopetColor.light07,
+                            : widget.isDisabled
+                                ? MopetColor.light04
+                                : MopetColor.light07,
                       ),
                     ),
                     disabledBorder: OutlineInputBorder(
@@ -104,7 +133,9 @@ class _RegisterTextFieldState extends ConsumerState<RegisterTextField> {
                         width: 1,
                         color: widget.showWarningTextField
                             ? MopetColor.warning
-                            : MopetColor.light07,
+                            : widget.isDisabled
+                                ? MopetColor.light04
+                                : MopetColor.light07,
                       ),
                     ),
                   ),
